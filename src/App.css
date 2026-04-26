@@ -92,6 +92,7 @@ button:hover { transform: scale(1.03); }
   padding: 40px 20px;
 }
 
+<<<<<<< HEAD
 .hero-content {
   text-align: center;
   max-width: 640px;
@@ -268,4 +269,36 @@ input:focus, textarea:focus { border-color: #6366f1; }
   .navbar { padding: 1rem; }
   .login-card { padding: 24px; }
   .card { padding: 20px; }
+=======
+button:hover {
+  transform: scale(1.05);
+  background: #f59e0b;
+}
+
+.light-theme {
+  background: #f8fafc !important; /* Light white/grey */
+  color: #0f172a !important;     /* Dark blue text */
+}
+
+.light-theme .hero-section {
+  background: radial-gradient(circle at top, #cbd5e1, #f8fafc) !important;
+}
+
+.light-theme .card {
+  background: white !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.light-theme input, .light-theme textarea {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.light-theme .card div {
+  background: #e2e8f0 !important; /* The "Latest Post" box */
+  color: #0f172a !important;
+>>>>>>> JadenA-part2
 }

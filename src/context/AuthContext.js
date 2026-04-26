@@ -2,10 +2,16 @@ import React, { createContext, useState, useContext } from 'react';
 
 const AuthContext = createContext();
 
+<<<<<<< HEAD
 const USERS = [
   { username: 'Alice', password: 'pass123' },
   { username: 'Bob',   password: 'abc456'  },
 ];
+=======
+/**
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+>>>>>>> JadenA-part2
 
 const INITIAL_POSTS = [
   {
@@ -75,6 +81,26 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user, login, logout, error, isAuthenticated: !!user, posts, addPost }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+*/
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [darkMode, setDarkMode] = useState(true); // Default is dark
+
+  const login = (username) => {
+    if(username.trim()) setUser({ name: username });
+  };
+
+  const logout = () => setUser(null);
+
+  const toggleTheme = () => setDarkMode(!darkMode);
+
+  return (
+    <AuthContext.Provider value={{ user, login, logout, isAuthenticated: !!user, darkMode, toggleTheme }}>
       {children}
     </AuthContext.Provider>
   );
