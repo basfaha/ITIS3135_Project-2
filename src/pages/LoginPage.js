@@ -17,7 +17,7 @@ export default function LoginPage() {
     }
     setFormError('');
     const success = login(username, password);
-    if (success) navigate('/blog');
+    if (success) navigate('/profile');
   };
 
   return (
@@ -51,7 +51,7 @@ export default function LoginPage() {
         <p className="login-footer">
           Just browsing? <Link to="/blog" className="nav-link">Explore the blog</Link>
         </p>
-        
+
         <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '8px' }}>
           Login →
         </button>
