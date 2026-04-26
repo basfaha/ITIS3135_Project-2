@@ -48,6 +48,10 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
+        <p className="login-footer">
+          Just browsing? <Link to="/blog" className="nav-link">Explore the blog</Link>
+        </p>
+        
         <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '8px' }}>
           Login →
         </button>
