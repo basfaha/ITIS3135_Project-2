@@ -269,11 +269,46 @@ input:focus, textarea:focus { border-color: #6366f1; }
 }
 
 /* ── Responsive ───────────────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  /* Navbar — stack vertically on mobile */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-brand {
+    font-size: 1.1rem;
+  }
+
+  .nav-user {
+    font-size: 0.8rem;
+  }
+
+  .btn-logout {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Homepage */
   .hero-title { font-size: 2rem; }
-  .navbar { padding: 1rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Cards and forms */
   .login-card { padding: 24px; }
   .card { padding: 20px; }
+  .blog-page { padding: 20px 16px; }
 }
 
 /* ── Light Theme ──────────────────────────────────────── */
