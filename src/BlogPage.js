@@ -2,9 +2,9 @@ import React from 'react';
 import { useAuth } from './context/AuthContext';
 
 export default function BlogPage() {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, darkMode } = useAuth(); // Added darkMode here
   return (
-    <div style={{ padding: '20px' }}>
+    <div className={darkMode ? "" : "light-theme"} style={{ minHeight: '100vh', padding: '20px' }}>
       <h2>Community Blog</h2>
       <div style={{ border: '1px solid #ccc', padding: '15px' }}>
         <h3>How to build a React App</h3>
