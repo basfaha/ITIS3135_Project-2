@@ -262,6 +262,34 @@ input:focus, textarea:focus { border-color: #6366f1; }
   font-size: 0.9rem;
 }
 
+/* ── Toast for Explore Page Login Prompt ────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #6366f1;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  animation: fadeInUp 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(16px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 600px) {
   .hero-title { font-size: 2rem; }
