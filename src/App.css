@@ -1,10 +1,17 @@
+/* ── Reset & Base ─────────────────────────────────────── */
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  background: #0f172a; /* Deep dark blue */
+  background: #0f172a;
   color: #f8fafc;
   font-family: 'Inter', sans-serif;
 }
 
+a { color: #a5b4fc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Navbar ───────────────────────────────────────────── */
 .navbar {
   background: linear-gradient(90deg, #4f46e5, #7c3aed);
   padding: 1rem 2rem;
@@ -14,47 +21,251 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.hero-section {
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at top, #1e1b4b, #0f172a);
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 2rem;
-  margin: 20px auto;
-  max-width: 600px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #334155;
-  background: #1e293b;
+.nav-brand {
   color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #c7d2fe;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.nav-link:hover { color: white; text-decoration: none; }
+
+.nav-user {
+  color: #e0e7ff;
+  font-size: 0.9rem;
+}
+
+.btn-logout {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.btn-logout:hover { background: rgba(255,255,255,0.25); transform: none; }
+
+/* ── Buttons ──────────────────────────────────────────── */
 button {
-  background: #fbbf24;
-  color: #000;
   font-weight: bold;
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+}
+button:hover { transform: scale(1.03); }
+
+.btn-primary {
+  background: #fbbf24;
+  color: #000;
+}
+.btn-primary:hover { background: #f59e0b; }
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+/* ── Homepage ─────────────────────────────────────────── */
+.hero-section {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #1e1b4b, #0f172a);
+  padding: 40px 20px;
 }
 
-button:hover {
-  transform: scale(1.05);
-  background: #f59e0b;
+.hero-content {
+  text-align: center;
+  max-width: 640px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #a5b4fc, #fbbf24);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Login Page ───────────────────────────────────────── */
+.login-page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-title {
+  margin: 0 0 4px;
+  font-size: 1.8rem;
+  color: #e0e7ff;
+}
+
+.login-hint {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0 0 8px;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.error-msg {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.login-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 4px 0 0;
+}
+
+/* ── Inputs ───────────────────────────────────────────── */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 4px 0;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input:focus, textarea:focus { border-color: #6366f1; }
+
+/* ── Blog Page ────────────────────────────────────────── */
+.blog-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.blog-heading {
+  font-size: 2rem;
+  margin-bottom: 28px;
+  color: #e0e7ff;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.post-title {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  color: #c7d2fe;
+}
+
+.post-meta {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin: 0 0 14px;
+}
+
+.post-body {
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+/* ── Comment Box ──────────────────────────────────────── */
+.comment-box {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 16px;
+}
+
+.comment-title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: #a5b4fc;
+}
+
+.comment-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.login-prompt {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 14px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+  .navbar { padding: 1rem; }
+  .login-card { padding: 24px; }
+  .card { padding: 20px; }
 }
