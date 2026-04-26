@@ -3,30 +3,30 @@ import React, { createContext, useState, useContext } from 'react';
 const AuthContext = createContext();
 
 const USERS = [
-  { username: 'alice', password: 'pass123' },
-  { username: 'bob',   password: 'abc456'  },
+  { username: 'Alice', password: 'pass123' },
+  { username: 'Bob',   password: 'abc456'  },
 ];
 
 const INITIAL_POSTS = [
   {
     id: 1,
     title: 'Getting Started with React',
-    author: 'alice',
-    date: 'April 10, 2025',
+    author: 'Alice',
+    date: 'April 10, 2026',
     body: 'React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small, isolated pieces of code called components.',
   },
   {
     id: 2,
     title: 'Understanding useContext',
-    author: 'bob',
-    date: 'April 15, 2025',
+    author: 'Bob',
+    date: 'April 15, 2026',
     body: 'Context provides a way to pass data through the component tree without having to pass props down manually at every level — perfect for auth state.',
   },
   {
     id: 3,
     title: 'React Router Basics',
-    author: 'alice',
-    date: 'April 18, 2025',
+    author: 'Alice',
+    date: 'April 18, 2026',
     body: 'React Router keeps your UI in sync with the URL and lets you build single-page applications with clean navigation between pages.',
   },
 ];

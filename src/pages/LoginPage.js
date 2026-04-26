@@ -25,7 +25,7 @@ export default function LoginPage() {
       <form className="login-card" onSubmit={handleSubmit}>
         <h2 className="login-title">Welcome Back</h2>
         <p className="login-hint">
-          Test: <strong>alice / pass123</strong> or <strong>bob / abc456</strong>
+          Test: <strong>Alice / pass123</strong> or <strong>Bob / abc456</strong>
         </p>
 
         {(formError || error) && (
