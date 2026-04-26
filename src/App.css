@@ -92,7 +92,6 @@ button:hover { transform: scale(1.03); }
   padding: 40px 20px;
 }
 
-<<<<<<< HEAD
 .hero-content {
   text-align: center;
   max-width: 640px;
@@ -269,10 +268,6 @@ input:focus, textarea:focus { border-color: #6366f1; }
   .navbar { padding: 1rem; }
   .login-card { padding: 24px; }
   .card { padding: 20px; }
-=======
-button:hover {
-  transform: scale(1.05);
-  background: #f59e0b;
 }
 
 .light-theme {
@@ -300,5 +295,4 @@ button:hover {
 .light-theme .card div {
   background: #e2e8f0 !important; /* The "Latest Post" box */
   color: #0f172a !important;
->>>>>>> JadenA-part2
 }
