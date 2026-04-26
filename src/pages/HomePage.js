@@ -11,7 +11,7 @@ export default function HomePage() {
       <div className="hero-content">
         <h1 className="hero-title">Write. Share. Connect.</h1>
         <p className="hero-subtitle">
-          A community blog for developers to share ideas, tutorials, and stories.
+          A community blog for developers to share world-changing ideas.
           {isAuthenticated
             ? ' Welcome back — jump right in.'
             : ' Log in to join the conversation.'}
