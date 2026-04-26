@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
-  const { user, logout, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+const { user, logout, isAuthenticated, darkMode, toggleTheme } = useAuth();  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
@@ -15,11 +14,18 @@ export default function Navbar() {
     <nav className="navbar">
       <Link to="/" className="nav-brand">Dev Blogger</Link>
       <div className="nav-links">
+        <button
+          onClick={toggleTheme}
+          className="btn-logout"
+          style={{ fontSize: '0.85rem' }}
+        >
+          {darkMode ? '🔆 Light Mode' : '☾ Dark Mode'}
+        </button>
         {isAuthenticated ? (
           <>
             <Link to="/blog" className="nav-link">Blog</Link>
             <Link to="/profile" className="nav-link">Profile</Link>
-            <span className="nav-user">Welcome back, {user.name}!</span>
+            <span className="nav-user">Hi, {user.name}!</span>
             <button onClick={handleLogout} className="btn-logout">Logout</button>
           </>
         ) : (

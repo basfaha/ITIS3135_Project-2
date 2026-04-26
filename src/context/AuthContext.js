@@ -34,6 +34,8 @@ const INITIAL_POSTS = [
 export const AuthProvider = ({ children }) => {
   const [user, setUser]   = useState(null);
   const [error, setError] = useState('');
+  const [darkMode, setDarkMode] = useState(true);
+  const toggleTheme = () => setDarkMode(!darkMode);
   const [posts, setPosts] = useState(INITIAL_POSTS);
 
   const login = (username, password) => {
@@ -74,7 +76,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, error, isAuthenticated: !!user, posts, addPost }}>
+    <AuthContext.Provider value={{ user, login, logout, error, isAuthenticated: !!user, posts, addPost, darkMode, toggleTheme }}>
       {children}
     </AuthContext.Provider>
   );
