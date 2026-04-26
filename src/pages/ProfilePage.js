@@ -13,13 +13,13 @@ export default function ProfilePage() {
 
   return (
     <div className="blog-page">
-      <div className="card" style={{ textAlign: 'center', padding: '48px' }}>
-        <div style={{ fontSize: '4rem', marginBottom: '16px' }}>👤</div>
-        <h1 style={{ color: '#c7d2fe', marginBottom: '8px' }}>
+      <div className="card" style={{ textAlign: 'center', padding: '40px' }}>
+        <div style={{ fontSize: '3.5rem', marginBottom: '12px' }}>👤</div>
+        <h1 style={{ color: '#c7d2fe', margin: '0 0 8px' }}>
           Welcome, {user.name}!
         </h1>
-        <p style={{ color: '#94a3b8', marginBottom: '32px' }}>
-          You are logged in and viewing your profile.
+        <p style={{ color: '#94a3b8', margin: '0 0 24px' }}>
+          You are logged in. Head to the blog to read and write posts.
         </p>
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
           <button className="btn-primary" onClick={() => navigate('/blog')}>

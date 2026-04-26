@@ -2,29 +2,75 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const POSTS = [
-  {
-    id: 1,
-    title: 'Getting Started with React',
-    author: 'alice',
-    date: 'April 10, 2025',
-    body: 'React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small, isolated pieces of code called components.',
-  },
-  {
-    id: 2,
-    title: 'Understanding useContext',
-    author: 'bob',
-    date: 'April 15, 2025',
-    body: 'Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
-  },
-  {
-    id: 3,
-    title: 'React Router Basics',
-    author: 'alice',
-    date: 'April 18, 2025',
-    body: 'React Router keeps your UI in sync with the URL and lets you build single-page applications with clean navigation.',
-  },
-];
+function NewPostForm() {
+  const { addPost } = useAuth();
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [formError, setFormError] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!title.trim() || !body.trim()) {
+      setFormError('Both title and body are required.');
+      return;
+    }
+    addPost(title, body);
+    setTitle('');
+    setBody('');
+    setFormError('');
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 3000);
+  };
+
+  return (
+    <div className="card" style={{ marginBottom: '32px' }}>
+      <h2 style={{ color: '#c7d2fe', margin: '0 0 20px' }}>✍️ Write a Post</h2>
+
+      {formError && <p className="error-msg">{formError}</p>}
+
+      {success && (
+        <p style={{
+          background: 'rgba(34,197,94,0.15)',
+          border: '1px solid #22c55e',
+          color: '#86efac',
+          padding: '10px 14px',
+          borderRadius: '8px',
+          fontSize: '0.9rem',
+        }}>
+          ✅ Post published successfully!
+        </p>
+      )}
+
+      <form onSubmit={handleSubmit}>
+        <label className="field-label">Title</label>
+        <input
+          type="text"
+          placeholder="Enter post title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+
+        <label className="field-label" style={{ marginTop: '12px' }}>Body</label>
+        <textarea
+          rows={5}
+          placeholder="Write your post here..."
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          style={{ marginTop: '4px' }}
+        />
+
+        <button
+          type="submit"
+          className="btn-primary"
+          style={{ marginTop: '16px', width: '100%' }}
+        >
+          Publish Post
+        </button>
+      </form>
+    </div>
+  );
+}
 
 function CommentBox() {
   const [text, setText] = useState('');
@@ -54,12 +100,17 @@ function CommentBox() {
 }
 
 export default function BlogPage() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, posts } = useAuth();
 
   return (
     <div className="blog-page">
       <h1 className="blog-heading">Blog Posts</h1>
-      {POSTS.map((post) => (
+
+      {/* Write a post — only visible when logged in */}
+      {isAuthenticated && <NewPostForm />}
+
+      {/* Posts list */}
+      {posts.map((post) => (
         <div key={post.id} className="card">
           <h2 className="post-title">{post.title}</h2>
           <p className="post-meta">By {post.author} · {post.date}</p>
@@ -68,7 +119,7 @@ export default function BlogPage() {
             <CommentBox />
           ) : (
             <p className="login-prompt">
-              🔒 <Link to="/login">Log in</Link> to leave a comment.
+              🔒 <Link to="/login">Log in</Link> to comment and write posts.
             </p>
           )}
         </div>
