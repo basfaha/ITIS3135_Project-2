@@ -51,10 +51,6 @@ export default function LoginPage() {
         <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '8px' }}>
           Login →
         </button>
-
-        <p className="login-footer">
-          Just browsing? <Link to="/blog" className="nav-link">Explore the blog</Link>
-        </p>
       </form>
     </div>
   );
